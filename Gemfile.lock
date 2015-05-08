@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/vfonic/socialization.git
+  revision: 6334a29908daac35940db8d2f6d9d2e167cc07bc
+  specs:
+    socialization (1.1.2)
+      activerecord
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -451,6 +458,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
+  socialization!
   spring
   spring-commands-rspec
   turbolinks
