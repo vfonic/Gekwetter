@@ -69,4 +69,10 @@ Rails.application.routes.draw do
   resources :users
   mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
   mount MailPreview => 'mail_view' if Rails.env.development?
+
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      get 'posts/:username' => 'microposts#index'
+    end
+  end
 end
