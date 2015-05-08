@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
-mount MailPreview => 'mail_view' if Rails.env.development?end
+  mount MailPreview => 'mail_view' if Rails.env.development?
+end
