@@ -22,6 +22,7 @@ gem 'rails_admin'
 gem 'simple_form'
 gem 'upmin-admin'
 gem 'mail_view'
+gem 'annotate'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
