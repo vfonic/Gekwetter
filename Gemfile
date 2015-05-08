@@ -21,6 +21,7 @@ gem 'pg'
 gem 'rails_admin'
 gem 'simple_form'
 gem 'upmin-admin'
+gem 'mail_view'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
@@ -33,7 +34,6 @@ group :development do
   gem 'guard-rspec'
   gem 'html2haml'
   gem 'hub', :require=>nil
-  gem 'mail_view'
   gem 'mailcatcher'
   gem 'quiet_assets'
   gem 'rails_layout'
