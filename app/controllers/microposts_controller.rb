@@ -1,15 +1,10 @@
 class MicropostsController < ApplicationController
-  before_action :set_micropost, only: [:show, :edit, :update, :destroy]
-
-  def timeline
-    @new_micropost = Micropost.new
-    @timeline = Micropost.timeline(current_user)
-  end
+  before_action :set_microposts, only: [:index, :create]
 
   # GET /microposts
   # GET /microposts.json
   def index
-    @microposts = Micropost.all
+    
   end
 
   # GET /microposts/1
@@ -34,7 +29,7 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       if @micropost.save
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully created.' }
+        format.html { render :index, notice: 'Micropost was successfully created.' }
         format.json { render :show, status: :created, location: @micropost }
       else
         format.html { render :new }
@@ -48,7 +43,7 @@ class MicropostsController < ApplicationController
   def update
     respond_to do |format|
       if @micropost.update(micropost_params)
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully updated.' }
+        format.html { render :index, notice: 'Micropost was successfully updated.' }
         format.json { render :show, status: :ok, location: @micropost }
       else
         format.html { render :edit }
@@ -69,8 +64,9 @@ class MicropostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_micropost
-      @micropost = Micropost.find(params[:id])
+    def set_microposts
+      @new_micropost = Micropost.new
+      @microposts = Micropost.timeline(current_user)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
