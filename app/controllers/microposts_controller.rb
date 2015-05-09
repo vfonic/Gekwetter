@@ -3,6 +3,7 @@ class MicropostsController < ApplicationController
 
   def timeline
     @new_micropost = Micropost.new
+    @timeline = Micropost.timeline(current_user)
   end
 
   # GET /microposts
