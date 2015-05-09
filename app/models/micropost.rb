@@ -25,4 +25,8 @@ class Micropost < ActiveRecord::Base
   validates :content,
     presence: true,
     length: { maximum: 160 }
+
+  def self.timeline(user)
+    self.joins(:user).where(user: user.following)
+  end
 end
