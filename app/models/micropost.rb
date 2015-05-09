@@ -19,7 +19,7 @@
 #
 
 class Micropost < ActiveRecord::Base
-  default_scope { order(:created_at) }
+  default_scope { order(created_at: :desc) }
   belongs_to :user
 
   validates :content,
@@ -28,5 +28,13 @@ class Micropost < ActiveRecord::Base
 
   def self.timeline(user)
     self.joins(:user).where(user: user.following)
+  end
+
+  def as_json(options = {})
+    {
+      id: id,
+      content: content,
+      created_at: created_at
+    }
   end
 end

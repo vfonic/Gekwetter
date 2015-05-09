@@ -1,12 +1,27 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  before_action :admin_only, except: [:show, :index]
+  before_action :set_user, only: [:show, :following, :followers]
+
+  def following
+    @users = @user.following
+    @follow_type = "following"
+    render :follow
+  end
+
+  def followers
+    @users = @user.followers
+    @follow_type = "followers"
+    render :follow
+  end
 
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
   end
+
+  private
+    def set_user
+      @user = User.friendly.find(params[:id])
+    end
 end

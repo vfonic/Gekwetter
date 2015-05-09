@@ -2,3 +2,5 @@
   = link_to micropost.user.username, user_path(micropost.user)
 %td
   = micropost.content
+%td
+  = time_ago_in_words(micropost.created_at, include_seconds: true) + ' ago'

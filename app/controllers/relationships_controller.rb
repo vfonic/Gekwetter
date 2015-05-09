@@ -14,6 +14,6 @@ class RelationshipsController < ApplicationController
 
   private
     def set_user
-      @user = User.find_by_username(params[:username])
+      @user = User.friendly.find(params[:username])
     end
 end

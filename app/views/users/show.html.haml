@@ -1,5 +1,9 @@
-%h3 User
-%p
-  Name: #{@user.name if @user.name}
-%p
-  Email: #{@user.email if @user.email}
+%h1
+  = @user.username
+
+.follow
+  .follow_count
+    = following_link(@user.following.count)
+
+  .follow_count
+    = followers_link(@user.followers.count)

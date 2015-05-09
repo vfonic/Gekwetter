@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
   acts_as_follower
   acts_as_followable
 
+  extend FriendlyId
+  friendly_id :username
+
   attr_accessor :login
 
   has_many :microposts
@@ -63,6 +66,15 @@ class User < ActiveRecord::Base
     else
       where(conditions.to_hash).first
     end
+  end
+
+  def as_json(options = {})
+    {
+      name: name || '',
+      username: username || '',
+      followers: followers.count,
+      following: following.count
+    }
   end
 
   # Include default devise modules. Others available are:
