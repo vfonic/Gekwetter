@@ -21,7 +21,7 @@
 #
 
 class Micropost < ActiveRecord::Base
-  default_scope { order(created_at: :desc) }
+  default_scope { order(created_at: :desc).includes(:user) }
   belongs_to :user
 
   validates :content,

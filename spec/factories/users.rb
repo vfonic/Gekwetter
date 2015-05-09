@@ -14,6 +14,8 @@
 # **`current_sign_in_ip`**      | `inet`             |
 # **`email`**                   | `string`           | `default(""), not null`
 # **`encrypted_password`**      | `string`           | `default(""), not null`
+# **`followers_count`**         | `integer`          | `default(0)`
+# **`following_count`**         | `integer`          | `default(0)`
 # **`last_sign_in_at`**         | `datetime`         |
 # **`last_sign_in_ip`**         | `inet`             |
 # **`name`**                    | `string`           |

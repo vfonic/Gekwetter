@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/vfonic/socialization.git
-  revision: 6334a29908daac35940db8d2f6d9d2e167cc07bc
+  revision: ad8977008033d57d8f2862795f766d899f5334fe
   specs:
-    socialization (1.1.2)
+    socialization (1.1.3)
       activerecord
 
 GEM

@@ -3,9 +3,9 @@
 
 .follow
   .follow_count
-    = following_link(@user.following.count)
+    = following_link
 
   .follow_count
-    = followers_link(@user.followers.count)
+    = followers_link
 
 = render 'microposts/timeline', microposts: @microposts
