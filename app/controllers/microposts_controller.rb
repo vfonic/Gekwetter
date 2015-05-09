@@ -1,6 +1,10 @@
 class MicropostsController < ApplicationController
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
 
+  def timeline
+    @new_micropost = Micropost.new
+  end
+
   # GET /microposts
   # GET /microposts.json
   def index
@@ -70,6 +74,6 @@ class MicropostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def micropost_params
-      params.require(:micropost).permit(:content, :user_id)
+      params.require(:micropost).permit(:content)
     end
 end

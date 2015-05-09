@@ -1,12 +1,5 @@
 %td
   = link_to user.username, user
--unless current_user.id == user.id
+-if user_signed_in? && current_user.id != user.id
   %td
     = follow_button(user)
--if current_user.try(:admin?)
-  %td
-    = form_for(user) do |f|
-      = f.select(:role, User.roles.keys.map {|role| [role.titleize,role]})
-      = f.submit 'Change Role', :class => 'button-xs'
-  %td
-    = link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user
