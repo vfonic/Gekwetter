@@ -4,3 +4,6 @@
   = micropost.content
 %td
   = time_ago_in_words(micropost.created_at, include_seconds: true) + ' ago'
+-if user_signed_in? && current_user == micropost.user
+  %td
+    = link_to 'delete', user_micropost_path(current_user, micropost), method: :delete, class: 'button-xs btn-danger'

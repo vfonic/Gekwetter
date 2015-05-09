@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :content
+    = f.input :content, as: :text, label: false, placeholder: "What's on your mind?"
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, value: 'Update status'

@@ -26,6 +26,7 @@ class MicropostsController < ApplicationController
   # DELETE /microposts/1
   # DELETE /microposts/1.json
   def destroy
+    @micropost = current_user.microposts.find(params[:id])
     @micropost.destroy
     respond_to do |format|
       format.html { redirect_to user_path(current_user), notice: 'Status deleted.' }
