@@ -62,3 +62,6 @@ group :test do
 end
 gem 'socialization', git: 'git://github.com/vfonic/socialization.git'
 gem 'friendly_id'
+gem 'nprogress-rails'
+gem 'cookies_eu', '~> 1.0.19'
+gem 'jquery-turbolinks', '~> 2.1.0'

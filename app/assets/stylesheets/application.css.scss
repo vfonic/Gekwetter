@@ -11,6 +11,9 @@
  * file per style scope.
  *
  *= require_self
+ *= require cookies_eu
+ *= require nprogress
+ *= require nprogress-bootstrap
  */
 
 @import "bootstrap-sprockets";
