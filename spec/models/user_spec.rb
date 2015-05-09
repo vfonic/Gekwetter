@@ -39,14 +39,14 @@
 
 describe User do
 
-  before(:each) { @user = User.new(email: 'user@example.com') }
+  before(:each) { @user = create(:user) }
 
   subject { @user }
 
   it { should respond_to(:email) }
 
   it "#email returns a string" do
-    expect(@user.email).to match 'user@example.com'
+    expect(@user.email).to match(/test[0-9]+@example\.com/)
   end
 
 end
