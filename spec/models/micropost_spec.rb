@@ -14,6 +14,8 @@
 #
 # ### Indexes
 #
+# * `index_microposts_on_created_at`:
+#     * **`created_at`**
 # * `index_microposts_on_user_id`:
 #     * **`user_id`**
 #

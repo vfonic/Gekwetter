@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509133746) do
+ActiveRecord::Schema.define(version: 20150509165241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150509133746) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "microposts", ["created_at"], name: "index_microposts_on_created_at", using: :btree
   add_index "microposts", ["user_id"], name: "index_microposts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
