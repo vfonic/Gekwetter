@@ -61,3 +61,4 @@ group :test do
   gem 'selenium-webdriver'
 end
 gem 'socialization', git: 'git://github.com/vfonic/socialization.git'
+gem 'friendly_id'
