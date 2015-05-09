@@ -14,16 +14,16 @@ feature 'User profile page', :devise do
   # Scenario: User sees own profile
   #   Given I am signed in
   #   When I visit the user profile page
-  #   Then I see my own email address
+  #   Then I see my own username address
   scenario 'user sees own profile' do
     user = create(:user)
     login_as(user, :scope => :user)
     visit user_path(user)
     expect(page).to have_content 'User'
-    expect(page).to have_content user.email
+    expect(page).to have_content user.username
   end
 
-  # Scenario: User cannot see another user's profile
+  # Scenario: User can see another user's profile
   #   Given I am signed in
   #   When I visit another user's profile
   #   Then I see another user's profile
@@ -34,7 +34,7 @@ feature 'User profile page', :devise do
     Capybara.current_session.driver.header 'Referer', root_path
     visit user_path(other)
     expect(page).to have_content 'User'
-    expect(page).to have_content other.email
+    expect(page).to have_content other.username
   end
 
 end

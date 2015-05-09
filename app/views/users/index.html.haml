@@ -1,8 +1,6 @@
-.container
-  %section
-    %h3 Users
-    %table.table
-      %tbody
-        - @users.each do |user|
-          %tr
-            = render user
+%h3 Users
+%table.table
+  %tbody
+    - @users.each do |user|
+      %tr
+        = render user

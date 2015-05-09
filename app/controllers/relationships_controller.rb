@@ -2,14 +2,14 @@ class RelationshipsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
 
-  def follow
+  def create
     current_user.follow!(@user)
-    redirect_to :back, notice: "Followed #{@user.username}"
+    redirect_to :back, notice: "Following #{@user.username}."
   end
 
-  def unfollow
+  def destroy
     current_user.unfollow!(@user)
-    redirect_to :back, notice: "Unfollowed #{@user.username}"
+    redirect_to :back, notice: "Unfollowed #{@user.username}."
   end
 
   private

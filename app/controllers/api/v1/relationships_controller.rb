@@ -11,6 +11,6 @@ class Api::V1::RelationshipsController < Api::V1::ApiController
 
   private
     def set_user
-      @user = User.find_by_username(params[:username])
+      @user = User.friendly.find(params[:username])
     end
 end

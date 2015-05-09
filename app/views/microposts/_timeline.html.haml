@@ -4,8 +4,3 @@
       - microposts.each do |micropost|
         %tr
           = render micropost
-
--if user_signed_in?
-  .new_status
-    = render 'microposts/form'
-

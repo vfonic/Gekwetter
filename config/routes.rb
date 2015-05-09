@@ -1,50 +1,45 @@
 # == Route Map
 #
-#                   Prefix Verb   URI Pattern                                   Controller#Action
-#                   api_v1 GET    /api/v1/:username/followers(.:format)         api/v1/relationships#followers {:format=>"json"}
-#                          GET    /api/v1/:username/following(.:format)         api/v1/relationships#following {:format=>"json"}
-#                          GET    /api/v1/:username(.:format)                   api/v1/microposts#index {:format=>"json"}
-#       authenticated_root GET    /                                             microposts#timeline
-#                     root GET    /                                             visitors#index
-#         new_user_session GET    /users/sign_in(.:format)                      devise/sessions#new
-#             user_session POST   /users/sign_in(.:format)                      devise/sessions#create
-#     destroy_user_session DELETE /users/sign_out(.:format)                     devise/sessions#destroy
-#            user_password POST   /users/password(.:format)                     devise/passwords#create
-#        new_user_password GET    /users/password/new(.:format)                 devise/passwords#new
-#       edit_user_password GET    /users/password/edit(.:format)                devise/passwords#edit
-#                          PATCH  /users/password(.:format)                     devise/passwords#update
-#                          PUT    /users/password(.:format)                     devise/passwords#update
-# cancel_user_registration GET    /users/cancel(.:format)                       devise/registrations#cancel
-#        user_registration POST   /users(.:format)                              devise/registrations#create
-#    new_user_registration GET    /users/sign_up(.:format)                      devise/registrations#new
-#   edit_user_registration GET    /users/edit(.:format)                         devise/registrations#edit
-#                          PATCH  /users(.:format)                              devise/registrations#update
-#                          PUT    /users(.:format)                              devise/registrations#update
-#                          DELETE /users(.:format)                              devise/registrations#destroy
-#          user_microposts GET    /users/:user_id/microposts(.:format)          microposts#index
-#                          POST   /users/:user_id/microposts(.:format)          microposts#create
-#       new_user_micropost GET    /users/:user_id/microposts/new(.:format)      microposts#new
-#      edit_user_micropost GET    /users/:user_id/microposts/:id/edit(.:format) microposts#edit
-#           user_micropost GET    /users/:user_id/microposts/:id(.:format)      microposts#show
-#                          PATCH  /users/:user_id/microposts/:id(.:format)      microposts#update
-#                          PUT    /users/:user_id/microposts/:id(.:format)      microposts#update
-#                          DELETE /users/:user_id/microposts/:id(.:format)      microposts#destroy
-#           following_user GET    /users/:id/following(.:format)                users#following
-#           followers_user GET    /users/:id/followers(.:format)                users#followers
-#                    users GET    /users(.:format)                              users#index
-#                          POST   /users(.:format)                              users#create
-#                 new_user GET    /users/new(.:format)                          users#new
-#                edit_user GET    /users/:id/edit(.:format)                     users#edit
-#                     user GET    /users/:id(.:format)                          users#show
-#                          PATCH  /users/:id(.:format)                          users#update
-#                          PUT    /users/:id(.:format)                          users#update
-#                          DELETE /users/:id(.:format)                          users#destroy
-#                    upmin        /upmin_admin                                  Upmin::Engine
-#              rails_admin        /rails_admin                                  RailsAdmin::Engine
-#             mail_preview        /mail_view                                    MailPreview
-#              follow_user POST   /:username/follow(.:format)                   relationships#follow
-#            unfollow_user POST   /:username/unfollow(.:format)                 relationships#unfollow
-#                     page GET    /pages/*id                                    high_voltage/pages#show
+#                   Prefix Verb   URI Pattern                           Controller#Action
+#                    upmin        /upmin_admin                          Upmin::Engine
+#              rails_admin        /rails_admin                          RailsAdmin::Engine
+#             mail_preview        /mail_view                            MailPreview
+#                   api_v1 GET    /api/v1/:username/followers(.:format) api/v1/relationships#followers {:format=>"json"}
+#                          GET    /api/v1/:username/following(.:format) api/v1/relationships#following {:format=>"json"}
+#                          GET    /api/v1/:username(.:format)           api/v1/users#show {:format=>"json"}
+#       authenticated_root GET    /                                     microposts#index
+#                     root GET    /                                     visitors#index
+#         new_user_session GET    /users/sign_in(.:format)              devise/sessions#new
+#             user_session POST   /users/sign_in(.:format)              devise/sessions#create
+#     destroy_user_session DELETE /users/sign_out(.:format)             devise/sessions#destroy
+#            user_password POST   /users/password(.:format)             devise/passwords#create
+#        new_user_password GET    /users/password/new(.:format)         devise/passwords#new
+#       edit_user_password GET    /users/password/edit(.:format)        devise/passwords#edit
+#                          PATCH  /users/password(.:format)             devise/passwords#update
+#                          PUT    /users/password(.:format)             devise/passwords#update
+# cancel_user_registration GET    /users/cancel(.:format)               devise/registrations#cancel
+#        user_registration POST   /users(.:format)                      devise/registrations#create
+#    new_user_registration GET    /users/sign_up(.:format)              devise/registrations#new
+#   edit_user_registration GET    /users/edit(.:format)                 devise/registrations#edit
+#                          PATCH  /users(.:format)                      devise/registrations#update
+#                          PUT    /users(.:format)                      devise/registrations#update
+#                          DELETE /users(.:format)                      devise/registrations#destroy
+#              follow_user POST   /:username/follow(.:format)           relationships#create
+#            unfollow_user POST   /:username/unfollow(.:format)         relationships#destroy
+#                    users GET    /users(.:format)                      users#index
+#          user_microposts GET    /:user_id/microposts(.:format)        microposts#index
+#                          POST   /:user_id/microposts(.:format)        microposts#create
+#           user_micropost DELETE /:user_id/microposts/:id(.:format)    microposts#destroy
+#           following_user GET    /:id/following(.:format)              users#following
+#           followers_user GET    /:id/followers(.:format)              users#followers
+#                          POST   /                                     users#create
+#                 new_user GET    /new(.:format)                        users#new
+#                edit_user GET    /:id/edit(.:format)                   users#edit
+#                     user GET    /:id(.:format)                        users#show
+#                          PATCH  /:id(.:format)                        users#update
+#                          PUT    /:id(.:format)                        users#update
+#                          DELETE /:id(.:format)                        users#destroy
+#                     page GET    /pages/*id                            high_voltage/pages#show
 #
 # Routes for Upmin::Engine:
 #               root GET      /                                 upmin/models#dashboard
@@ -70,11 +65,15 @@
 #
 
 Rails.application.routes.draw do
+  mount Upmin::Engine => '/upmin_admin'
+  mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
+  mount MailPreview => 'mail_view' if Rails.env.development?
+
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       get ':username/followers' => 'relationships#followers'
       get ':username/following' => 'relationships#following'
-      get ':username' => 'microposts#index'
+      get ':username' => 'users#show'
     end
   end
 
@@ -84,20 +83,13 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
 
   devise_for :users
-  
-  post 'microposts', to: 'microposts#create', as: :microposts
 
-  mount Upmin::Engine => '/upmin_admin'
-  mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
-  mount MailPreview => 'mail_view' if Rails.env.development?
-
-  # get ':username', to: 'users#show', as: :user
-  post ':username/follow', to: 'relationships#follow', as: :follow_user
-  post ':username/unfollow', to: 'relationships#unfollow', as: :unfollow_user
+  post ':username/follow', to: 'relationships#create', as: :follow_user
+  post ':username/unfollow', to: 'relationships#destroy', as: :unfollow_user
 
   resources :users, only: :index
   resources :users, except: :index, path: '' do
-    resources :microposts
+    resources :microposts, only: [:index, :destroy, :create]
     member do
       get :following, :followers
     end
