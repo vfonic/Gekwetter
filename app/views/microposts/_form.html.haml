@@ -1,9 +1,8 @@
-= simple_form_for(@micropost) do |f|
+= simple_form_for(@new_micropost) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :content
-    = f.input :user_id
 
   .form-actions
     = f.button :submit

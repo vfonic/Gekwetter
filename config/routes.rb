@@ -79,7 +79,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-    root to: "microposts#timeline", as: :authenticated_root
+    root to: "microposts#index", as: :authenticated_root
   end
   root to: 'visitors#index'
 
@@ -90,6 +90,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+  post 'microposts', to: 'microposts#create', as: :microposts
 
   mount Upmin::Engine => '/upmin_admin'
   mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
