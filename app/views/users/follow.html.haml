@@ -1,0 +1,9 @@
+%h1
+  = @user.username
+  = @follow_type
+
+%table.table
+  %tbody
+    - @users.each do |user|
+      %tr
+        = render user

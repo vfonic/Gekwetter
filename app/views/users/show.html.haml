@@ -3,7 +3,7 @@
 
 .follow
   .follow_count
-    = link_to "#{@user.following.count} following", root_path
+    = following_link(@user.following.count)
 
   .follow_count
-    = link_to "#{@user.following.count} followers", root_path
+    = followers_link(@user.followers.count)
