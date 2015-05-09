@@ -84,13 +84,7 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
 
   devise_for :users
-  resources :users do
-    resources :microposts
-    member do
-      get :following, :followers
-    end
-  end
-
+  
   post 'microposts', to: 'microposts#create', as: :microposts
 
   mount Upmin::Engine => '/upmin_admin'
@@ -100,4 +94,12 @@ Rails.application.routes.draw do
   # get ':username', to: 'users#show', as: :user
   post ':username/follow', to: 'relationships#follow', as: :follow_user
   post ':username/unfollow', to: 'relationships#unfollow', as: :unfollow_user
+
+  resources :users, only: :index
+  resources :users, except: :index, path: '' do
+    resources :microposts
+    member do
+      get :following, :followers
+    end
+  end
 end
