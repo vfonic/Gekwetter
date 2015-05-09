@@ -1,4 +1,4 @@
-= simple_form_for(@new_micropost) do |f|
+= simple_form_for micropost, url: user_microposts_path(current_user) do |f|
   = f.error_notification
 
   .form-inputs

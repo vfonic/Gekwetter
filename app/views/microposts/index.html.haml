@@ -1,2 +1,5 @@
 .timeline
   = render "microposts/timeline", microposts: @microposts
+
+.new_status
+  = render 'microposts/form', micropost: @new_micropost
