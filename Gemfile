@@ -37,6 +37,13 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
+  gem 'capistrano'#, '~> 3.0.1'
+  gem 'capistrano-rails'#, '~> 1.1.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  # gem 'capistrano-secrets-yml'
+  gem 'capistrano-figaro-yml'
+  # gem 'capistrano-rails-console'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -61,10 +68,3 @@ gem 'nprogress-rails'
 gem 'cookies_eu', '~> 1.0.19'
 gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'rails-footnotes'
-gem 'capistrano'#, '~> 3.0.1'
-gem 'capistrano-rails'#, '~> 1.1.0'
-gem 'capistrano-bundler'
-gem 'capistrano-rvm'
-gem 'capistrano-secrets-yml'
-# gem 'capistrano-rails-console'
-# gem 'capistrano-rvm', '~> 0.1.1'
