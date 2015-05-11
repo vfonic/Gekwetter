@@ -19,7 +19,10 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 MANDRILL_USERNAME: Your_Username
 MANDRILL_APIKEY: Your_API_Key
+APP_NAME: example
 DOMAIN_NAME: example.com
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
+ADMIN_USERNAME: username
+SECRET_KEY_BASE: use_rake_secret_to_generate_one
