@@ -17,6 +17,7 @@ require 'capistrano/deploy'
 #
 require 'capistrano/rvm'
 require 'capistrano/secrets_yml'
+require 'capistrano/figaro_yml'
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 require 'capistrano/bundler'

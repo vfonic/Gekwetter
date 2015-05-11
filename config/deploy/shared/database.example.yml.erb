@@ -6,6 +6,6 @@
   database: <%= "#{fetch(:application)}_#{fetch(:rails_env)}" %>
   pool: 5
   username: <%= "#{fetch(:application)}_#{fetch(:rails_env)}" %>
-  password:
+  password: <%= "#{fetch(:application)}_#{fetch(:rails_env)}" %>
   host:
   port: 5432

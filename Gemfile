@@ -41,9 +41,8 @@ group :development do
   gem 'capistrano-rails'#, '~> 1.1.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
-  # gem 'capistrano-secrets-yml'
+  gem 'capistrano-secrets-yml', git: 'git://github.com/vfonic/capistrano-secrets-yml.git'
   gem 'capistrano-figaro-yml'
-  # gem 'capistrano-rails-console'
 end
 group :development, :test do
   gem 'factory_girl_rails'

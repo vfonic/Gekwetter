@@ -53,7 +53,6 @@ set :tests, []
 # see documentation in lib/capistrano/tasks/setup_config.cap
 # for details of operations
 set(:config_files, %w(
-  application.yml
   nginx.conf
   database.example.yml
   log_rotation

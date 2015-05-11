@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/vfonic/capistrano-secrets-yml.git
+  revision: 6cdd121bdf11a2dc8fac917ebabdba7f4663870e
+  specs:
+    capistrano-secrets-yml (1.0.0)
+      capistrano (>= 3.1)
+      sshkit (>= 1.2.0)
+
+GIT
   remote: git://github.com/vfonic/socialization.git
   revision: ad8977008033d57d8f2862795f766d899f5334fe
   specs:
@@ -438,6 +446,7 @@ DEPENDENCIES
   capistrano-figaro-yml
   capistrano-rails
   capistrano-rvm
+  capistrano-secrets-yml!
   capybara
   coffee-rails (~> 4.1.0)
   cookies_eu (~> 1.0.19)
