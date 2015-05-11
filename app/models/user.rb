@@ -52,7 +52,8 @@ class User < ActiveRecord::Base
 
   validates :username,
     presence: true,
-    uniqueness: { case_sensitive: false }
+    uniqueness: { case_sensitive: false },
+        format: { with: /\A[a-z0-9]+\z/i }
 
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
