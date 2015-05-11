@@ -40,7 +40,7 @@ set :assets_roles, [:app]
 # set :pty, true
 
 # files we want symlinking to specific entries in shared.
-set :linked_files, %w{ config/database.yml config/application.yml config/secrets.yml }
+set :linked_files, %w{ config/database.yml config/application.yml }
 
 # dirs we want symlinking to shared
 set :linked_dirs, %w{ bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system }
