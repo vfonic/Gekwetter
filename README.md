@@ -1,48 +1,37 @@
 Gekwetter
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+Shameless Twitter clone.
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+Installation
+------------
+1. Clone the repo `git clone https://github.com/vfonic/Gekwetter.git`
+2. Run `bundle install` inside project root
+3. `cp config/database.example.yml config/database.yml`
+3. Run `rake db:create`, `rake db:migrate`
+4. Start `rails server`
 
-Problems? Issues?
------------
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.2.1
-- Rails 4.2.1
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
 
 Issues
 -------------
+If the application doesn't work as expected, please [report an issue](https://github.com/vfonic/gekwetter/issues)
+and include the repro steps.
 
 Similar Projects
 ----------------
+* [Liceknjiga](https://github.com/vfonic/liceknjiga)
+* [Twitter (clone)](https://github.com/vfonic/twitter)
+
 
 Contributing
 ------------
-
-Credits
--------
+1. Fork the repo
+2. Create feature/hotfix branch
+3. Send the pull request
 
 License
 -------
+[MIT License](http://www.opensource.org/licenses/mit-license)
+
+Copyright © 2015 Viktor Fonic
