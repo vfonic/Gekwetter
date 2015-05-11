@@ -193,7 +193,6 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.9.3)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (2.10.0)
@@ -247,6 +246,8 @@ GEM
     pry-rescue (1.4.2)
       interception (>= 0.5)
       pry
+    puma (2.11.2)
+      rack (>= 1.1, < 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.1)
@@ -299,7 +300,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
-    raindrops (0.13.0)
     rake (10.4.2)
     ransack (1.6.6)
       actionpack (>= 3.0)
@@ -402,10 +402,6 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unicorn (4.9.0)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
     upmin-admin (0.1.01)
       haml (>= 3.0.0)
       jquery-rails
@@ -463,6 +459,7 @@ DEPENDENCIES
   pg
   pry-rails
   pry-rescue
+  puma
   quiet_assets
   rails (= 4.2.1)
   rails-footnotes
@@ -481,6 +478,5 @@ DEPENDENCIES
   spring-commands-rspec
   turbolinks
   uglifier (>= 1.3.0)
-  unicorn
   upmin-admin
   web-console (~> 2.0)

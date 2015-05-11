@@ -52,7 +52,7 @@ group :development, :test do
   gem 'rubocop'
 end
 group :production do
-  gem 'unicorn'
+  gem 'puma'
 end
 group :test do
   gem 'capybara'
