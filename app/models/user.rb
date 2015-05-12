@@ -46,6 +46,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username
 
+  before_save :downcase_username_and_email
+
   attr_accessor :login
 
   has_many :microposts
@@ -69,6 +71,11 @@ class User < ActiveRecord::Base
     else
       where(conditions.to_hash).first
     end
+  end
+
+  def downcase_username_and_email
+    self.username = self.username.downcase
+    self.email = self.email.downcase
   end
 
   def as_json(options = {})

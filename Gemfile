@@ -22,6 +22,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'nprogress-rails', '~> 0.1.6.7'
 gem 'cookies_eu', '~> 1.0.19'
 gem 'jquery-turbolinks', '~> 2.1.0'
+gem 'kaminari', '~> 0.16.3'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

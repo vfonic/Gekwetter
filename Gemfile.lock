@@ -462,6 +462,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.3)
   jquery-turbolinks (~> 2.1.0)
+  kaminari (~> 0.16.3)
   launchy
   mail_view (~> 2.0.4)
   mailcatcher

@@ -28,8 +28,8 @@ class Micropost < ActiveRecord::Base
     presence: true,
     length: { maximum: 160 }
 
-  def self.timeline(user)
-    self.joins(:user).where(user: user.following)
+  def self.timeline(user, page)
+    self.joins(:user).where(user: user.following).page page
   end
 
   def as_json(options = {})
