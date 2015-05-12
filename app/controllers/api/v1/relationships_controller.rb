@@ -1,12 +1,16 @@
 class Api::V1::RelationshipsController < Api::V1::ApiController
   before_action :set_user
 
+  after_filter only: [:following, :followers] { set_pagination_header(:follow) }
+
   def followers
-    render json: @user.followers
+    @follow = @user.followers.page(params[:page])
+    render json: @follow
   end
 
   def following
-    render json: @user.following
+    @follow = @user.following.page(params[:page])
+    render json: @follow
   end
 
   private
