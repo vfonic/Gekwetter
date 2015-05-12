@@ -4,3 +4,6 @@
     - @users.each do |user|
       %tr
         = render user, following: @following
+
+.pagination
+  = paginate @users

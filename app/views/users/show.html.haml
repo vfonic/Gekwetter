@@ -9,3 +9,6 @@
     = followers_link
 
 = render 'microposts/timeline', microposts: @microposts
+
+.pagination
+  = paginate @microposts

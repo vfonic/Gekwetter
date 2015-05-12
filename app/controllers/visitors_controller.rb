@@ -1,5 +1,5 @@
 class VisitorsController < ApplicationController
   def index
-    @microposts = Micropost.all
+    @microposts = Micropost.page params[:page]
   end
 end
