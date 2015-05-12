@@ -38,7 +38,7 @@ class MicropostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_microposts
       @new_micropost = Micropost.new
-      @microposts = Micropost.timeline(current_user)
+      @microposts = Micropost.timeline(current_user, params[:page])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

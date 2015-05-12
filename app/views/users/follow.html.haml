@@ -2,8 +2,11 @@
   = @user.username
   = @follow_type
 
-%table.table
-  %tbody
+%table.table.users
+  %tbody.page
     - @users.each do |user|
-      %tr
+      %tr.user
         = render user, following: @following
+
+.pagination
+  = paginate @users

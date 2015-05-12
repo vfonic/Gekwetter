@@ -18,4 +18,5 @@
 //= require bootstrap-sprockets
 //= require nprogress
 //= require nprogress-turbolinks
+//= require jquery.infinitescroll
 //= require_tree .

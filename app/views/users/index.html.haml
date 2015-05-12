@@ -1,6 +1,9 @@
 %h3 Users
-%table.table
-  %tbody
+%table.table.users
+  %tbody.page
     - @users.each do |user|
-      %tr
+      %tr.user
         = render user, following: @following
+
+.pagination
+  = paginate @users

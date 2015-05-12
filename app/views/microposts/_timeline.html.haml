@@ -1,6 +1,6 @@
 .timeline
   %table.table
-    %tbody
+    %tbody.page
       - microposts.each do |micropost|
-        %tr
+        %tr.micropost
           = render micropost
