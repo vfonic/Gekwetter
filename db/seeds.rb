@@ -9,3 +9,21 @@ user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
+if Rails.env.test?
+  100.times do
+    user = User.new
+    user.name = Faker::Name.name
+    user.username = user.name[0] + user.name.split[1]
+    user.email = Faker::Internet.email
+    user.password = "asdasdasd"
+    user.password_confirmation = "asdasdasd"
+    user.save
+    50.times do
+      post = Micropost.new
+      post.content = Faker::Lorem.sentences(1)[0][0..160]
+      post.user = user
+      post.save
+    end
+  end
+  puts 'CREATED DUMMY DATA'
+end
