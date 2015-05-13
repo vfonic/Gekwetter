@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0088)file:///Users/viktorfonic/Data/Programming/Ruby/Gekwetter/doc/apidoc-onepage%20copy.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>API documentation</title>
   
@@ -20,14 +19,16 @@
         <br>
         <h2>Table of Contents</h2>
         <br>
-          <h4><a href="file:///Users/viktorfonic/Data/Programming/Ruby/Gekwetter/doc/apidoc-onepage%20copy.html#relationships">Relationships</a></h4>
+        <h4><a href="#pagination">Pagination</a></h4>
+        <br>
+          <h4><a href="#relationships">Relationships</a></h4>
   <ul>
-      <li><a href="file:///Users/viktorfonic/Data/Programming/Ruby/Gekwetter/doc/apidoc-onepage%20copy.html#relationships-followers">followers</a></li>
-      <li><a href="file:///Users/viktorfonic/Data/Programming/Ruby/Gekwetter/doc/apidoc-onepage%20copy.html#relationships-following">following</a></li>
+      <li><a href="#relationships-followers">followers</a></li>
+      <li><a href="#relationships-following">following</a></li>
   </ul>
-  <h4><a href="file:///Users/viktorfonic/Data/Programming/Ruby/Gekwetter/doc/apidoc-onepage%20copy.html#users">Users</a></h4>
+  <h4><a href="#users">Users</a></h4>
   <ul>
-      <li><a href="file:///Users/viktorfonic/Data/Programming/Ruby/Gekwetter/doc/apidoc-onepage%20copy.html#users-show">show</a></li>
+      <li><a href="#users-show">show</a></li>
   </ul>
   <br>
 
@@ -38,6 +39,17 @@
 </div>
 
 <hr>
+
+  <div class="page-header">
+    <h2 id="pagination">Pagination</h2>
+  </div>
+  <p>Information about pagination is provided in <a href="http://tools.ietf.org/html/rfc5988">the Link header</a>
+of an API call. For example:</p>
+  <pre><code>curl -I "https://gekwetter.com/api/v1/vfonic?page=2"</code></pre>
+  <p>The <code>-I</code> parameter indicates that we only care about the headers, not the actual content.
+  <pre><code>Link: &lt;http://gekwetter.dev/api/v1/vfonic?page=1&gt;; rel="first", &lt;http://gekwetter.dev/api/v1/vfonic?page=1&gt;; rel="prev"
+Link: &lt;http://gekwetter.dev/api/v1/vfonic?page=34&gt;; rel="last", &lt;http://gekwetter.dev/api/v1/vfonic?page=3&gt;; rel="next"</code></pre>
+  <hr>
 
 
   <div class="page-header">
