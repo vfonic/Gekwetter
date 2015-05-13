@@ -45,9 +45,9 @@
   </div>
   <p>Information about pagination is provided in <a href="http://tools.ietf.org/html/rfc5988">the Link header</a>
 of an API call. For example:</p>
-  <pre><code>curl -I "https://gekwetter.com/api/v1/vfonic?page=2"</code></pre>
+  <pre  class="prettyprint"><code>curl -I "https://gekwetter.com/api/v1/vfonic?page=2"</code></pre>
   <p>The <code>-I</code> parameter indicates that we only care about the headers, not the actual content.
-  <pre><code>Link: &lt;http://gekwetter.dev/api/v1/vfonic?page=1&gt;; rel="first", &lt;http://gekwetter.dev/api/v1/vfonic?page=1&gt;; rel="prev"
+  <pre  class="prettyprint"><code>Link: &lt;http://gekwetter.dev/api/v1/vfonic?page=1&gt;; rel="first", &lt;http://gekwetter.dev/api/v1/vfonic?page=1&gt;; rel="prev"
 Link: &lt;http://gekwetter.dev/api/v1/vfonic?page=34&gt;; rel="last", &lt;http://gekwetter.dev/api/v1/vfonic?page=3&gt;; rel="next"</code></pre>
   <hr>
 
