@@ -74,7 +74,9 @@ Rails.application.routes.draw do
       get ':username/followers' => 'relationships#followers'
       get ':username/following' => 'relationships#following'
       get ':username' => 'users#show'
+      get '', :to => redirect('/api/v1/api.html')
     end
+    get '', to: redirect('/api/v1')
   end
 
   authenticated :user do
