@@ -1,6 +1,10 @@
-.timeline
-  %table.table
-    %tbody.page
-      - microposts.each do |micropost|
-        %tr.micropost
-          = render micropost
+-if microposts.any?
+  .timeline
+    %table.table
+      %tbody.page
+        - microposts.each do |micropost|
+          %tr.micropost
+            = render micropost
+-else
+  %h2
+    Sad story, no posts here :(
