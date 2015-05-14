@@ -3,10 +3,11 @@
 #                   Prefix Verb   URI Pattern                           Controller#Action
 #                    upmin        /upmin_admin                          Upmin::Engine
 #              rails_admin        /rails_admin                          RailsAdmin::Engine
-#             mail_preview        /mail_view                            MailPreview
 #                   api_v1 GET    /api/v1/:username/followers(.:format) api/v1/relationships#followers {:format=>"json"}
 #                          GET    /api/v1/:username/following(.:format) api/v1/relationships#following {:format=>"json"}
 #                          GET    /api/v1/:username(.:format)           api/v1/users#show {:format=>"json"}
+#                          GET    /api/v1(.:format)                     redirect(301, /api/v1/api.html) {:format=>"json"}
+#                      api GET    /api(.:format)                        redirect(301, /api/v1) {:format=>"json"}
 #       authenticated_root GET    /                                     microposts#index
 #                     root GET    /                                     visitors#index
 #         new_user_session GET    /users/sign_in(.:format)              devise/sessions#new
@@ -39,6 +40,7 @@
 #                          PATCH  /:id(.:format)                        users#update
 #                          PUT    /:id(.:format)                        users#update
 #                          DELETE /:id(.:format)                        users#destroy
+#                          GET    /:any(.:format)                       redirect(301, subdomain: , path: /%{any}) {:any=>/.*/, :subdomain=>"www"}
 #                     page GET    /pages/*id                            high_voltage/pages#show
 #
 # Routes for Upmin::Engine:
@@ -65,9 +67,7 @@
 #
 
 Rails.application.routes.draw do
-  mount Upmin::Engine => '/upmin_admin'
   mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
-  mount MailPreview => 'mail_view' if Rails.env.development?
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
