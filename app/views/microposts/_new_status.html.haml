@@ -1,0 +1,6 @@
+-if user_signed_in?
+  %button.new_status
+    New status
+
+  .new_status_box
+    = render 'microposts/form', micropost: @new_micropost

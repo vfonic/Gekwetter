@@ -19,4 +19,5 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require jquery.infinitescroll
+//= require bootbox
 //= require_tree .

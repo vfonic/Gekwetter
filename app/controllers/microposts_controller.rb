@@ -17,7 +17,7 @@ class MicropostsController < ApplicationController
         format.html { redirect_to user_path(current_user), notice: 'Status updated.' }
         format.json { render :show, status: :created, location: @micropost }
       else
-        format.html { redirect_to root_path }
+        format.html { redirect_to :back, alert: @micropost.errors.full_messages.join }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
       end
     end
@@ -37,7 +37,6 @@ class MicropostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_microposts
-      @new_micropost = Micropost.new
       @microposts = Micropost.timeline(current_user, params[:page])
     end
 
