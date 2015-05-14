@@ -31,6 +31,8 @@
 #
 # ### Indexes
 #
+# * `index_users_on_created_at`:
+#     * **`created_at`**
 # * `index_users_on_email` (_unique_):
 #     * **`email`**
 # * `index_users_on_reset_password_token` (_unique_):
