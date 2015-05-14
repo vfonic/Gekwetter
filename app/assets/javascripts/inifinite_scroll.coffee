@@ -6,7 +6,7 @@ $(document).ready ->
     loading:
       msgText: ""
 
-  $(".timeline .page").infinitescroll
+  $(".timeline").infinitescroll
     navSelector: ".pagination"
     nextSelector: ".pagination a[rel=next]"
     itemSelector: ".micropost"

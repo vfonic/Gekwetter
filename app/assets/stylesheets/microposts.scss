@@ -1,10 +1,37 @@
 // Place all the styles related to the Microposts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.timeline {
+ul.timeline {
   padding-top: 30px;
   max-width: 640px;
   margin: 0 auto;
+  list-style: none;
+
+  .micropost {
+    padding: 5px;
+    border-top: 1px solid $gray-lighter;
+
+    &:hover {
+      background-color: $table-bg-hover;
+    }
+
+    .username {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .time_ago {
+      color: $second-plan-text-color;
+    }
+    .content {
+      font-size: 1.2em;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+    .delete {
+      margin-top: 5px;
+      float: right;
+    }
+  }
 }
 .new_status {
   @extend .btn;

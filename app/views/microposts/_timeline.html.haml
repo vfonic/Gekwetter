@@ -1,10 +1,8 @@
 -if microposts.any?
-  .timeline
-    %table.table
-      %tbody.page
-        - microposts.each do |micropost|
-          %tr.micropost
-            = render micropost
+  %ul.timeline.table-hover
+    - microposts.each do |micropost|
+      %li.micropost
+        = render micropost
 -else
   %h2
     Sad story, no posts here :(
