@@ -7,6 +7,11 @@
   margin: 0 auto;
 }
 .new_status {
-  max-width: 640px;
-  margin: 0 auto;
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .pull-right;
+  margin-top: 7px;
+}
+.new_status_box {
+  display: none;
 }

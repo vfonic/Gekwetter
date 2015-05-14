@@ -1,6 +1,4 @@
 = simple_form_for micropost, url: user_microposts_path(current_user) do |f|
-  = f.error_notification
-
   .form-inputs
     = f.input :content, as: :text, label: false, placeholder: "What's on your mind?"
 
