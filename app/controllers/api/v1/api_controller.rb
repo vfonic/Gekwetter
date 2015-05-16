@@ -3,10 +3,10 @@ class Api::V1::ApiController < ApplicationController
   respond_to :json
 
   protected
-    def set_pagination_header(name, options = {})
+    def set_pagination_header(name)
       scope = instance_variable_get("@#{name}")
       request_params = request.query_parameters
-      url_without_params = request.original_url.slice(0..(request.original_url.index("?")-1)) unless request_params.empty?
+      url_without_params = request.original_url.slice(0..(request.original_url.index('?') - 1)) unless request_params.empty?
       url_without_params ||= request.original_url
 
       page = {}
@@ -17,9 +17,9 @@ class Api::V1::ApiController < ApplicationController
 
       pagination_links = []
       page.each do |k, v|
-        new_request_hash= request_params.merge({:page => v})
+        new_request_hash = request_params.merge(page: v)
         pagination_links << "<#{url_without_params}?#{new_request_hash.to_param}>; rel=\"#{k}\""
       end
-      headers["Link"] = pagination_links.join(", ")
+      headers['Link'] = pagination_links.join(', ')
     end
 end

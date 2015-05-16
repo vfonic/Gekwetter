@@ -4,14 +4,14 @@ class UsersController < ApplicationController
   def following
     @users = @user.following.page params[:page]
     @following = current_user.following if user_signed_in?
-    @follow_type = "following"
+    @follow_type = 'following'
     render :follow
   end
 
   def followers
     @users = @user.followers.page params[:page]
     @following = current_user.following if user_signed_in?
-    @follow_type = "followers"
+    @follow_type = 'followers'
     render :follow
   end
 

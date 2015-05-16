@@ -5,8 +5,8 @@ module UsersHelper
 
   def followers_link
     link_to(followers_user_path(@user)) do
-      "#{@user.followers_count} " +
-      "#{"follower".pluralize(@user.followers_count)}"
+      "#{@user.followers_count} " \
+        "#{'follower'.pluralize(@user.followers_count)}"
     end
   end
 end

@@ -1,10 +1,10 @@
 set :stage, :production
-set :branch, "master"
+set :branch, 'master'
 
 # This is used in the Nginx VirtualHost to specify which domains
 # the app should appear on. If you don't yet have DNS setup, you'll
 # need to create entries in your local Hosts file for testing.
-set :server_name, "gekwetter.com"
+set :server_name, 'gekwetter.com'
 
 # used in case we're deploying multiple versions of the same
 # app side by side. Also provides quick sanity checks when looking
@@ -16,7 +16,7 @@ set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server 'gekwetter.cloudapp.net', user: 'vfonic', roles: %w{app db web}, primary: true
+server 'gekwetter.cloudapp.net', user: 'vfonic', roles: %w(app db web), primary: true
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
@@ -44,8 +44,6 @@ set :enable_ssl, true
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -53,8 +51,6 @@ set :enable_ssl, true
 # For available Capistrano configuration variables see the documentation page.
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
-
-
 
 # Custom SSH Options
 # ==================

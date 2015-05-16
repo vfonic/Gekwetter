@@ -6,7 +6,6 @@ Warden.test_mode!
 #   I want to delete my user profile
 #   So I can close my account
 feature 'User delete', :devise, :js do
-
   after(:each) do
     Warden.test_reset!
   end
@@ -24,9 +23,4 @@ feature 'User delete', :devise, :js do
   #   page.driver.browser.switch_to.alert.accept
   #   expect(page).to have_content I18n.t 'devise.registrations.destroyed'
   # end
-
 end
-
-
-
-

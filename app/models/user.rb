@@ -57,12 +57,12 @@ class User < ActiveRecord::Base
   has_many :microposts
 
   validates :username,
-    presence: true,
-    uniqueness: { case_sensitive: false },
-        format: { with: /\A[a-z0-9]+\z/i }
+            presence: true,
+            uniqueness: { case_sensitive: false },
+            format: { with: /\A[a-z0-9]+\z/i }
 
   enum role: [:user, :vip, :admin]
-  after_initialize :set_default_role, :if => :new_record?
+  after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
     self.role ||= :user
@@ -71,18 +71,18 @@ class User < ActiveRecord::Base
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions.to_hash).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions.to_hash).find_by(['lower(username) = :value OR lower(email) = :value', { value: login.downcase }])
     else
-      where(conditions.to_hash).first
+      find_by(conditions.to_hash)
     end
   end
 
   def downcase_username_and_email
-    self.username = self.username.downcase
-    self.email = self.email.downcase
+    self.username = username.downcase
+    self.email = email.downcase
   end
 
-  def as_json(options = {})
+  def as_json(_ = {})
     {
       name: name || '',
       username: username || '',
@@ -93,6 +93,6 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,# :confirmable,
+  devise :database_authenticatable, :registerable, # :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 end

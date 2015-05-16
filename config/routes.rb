@@ -1,7 +1,6 @@
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                           Controller#Action
-#                    upmin        /upmin_admin                          Upmin::Engine
 #              rails_admin        /rails_admin                          RailsAdmin::Engine
 #                   api_v1 GET    /api/v1/:username/followers(.:format) api/v1/relationships#followers {:format=>"json"}
 #                          GET    /api/v1/:username/following(.:format) api/v1/relationships#following {:format=>"json"}
@@ -43,16 +42,6 @@
 #                          GET    /:any(.:format)                       redirect(301, subdomain: , path: /%{any}) {:any=>/.*/, :subdomain=>"www"}
 #                     page GET    /pages/*id                            high_voltage/pages#show
 #
-# Routes for Upmin::Engine:
-#               root GET      /                                 upmin/models#dashboard
-#    upmin_dashboard GET      /                                 upmin/models#dashboard
-#       upmin_search GET|POST /m/:klass(.:format)               upmin/models#search
-#    upmin_new_model GET      /m/:klass/new(.:format)           upmin/models#new
-# upmin_create_model POST     /m/:klass/new(.:format)           upmin/models#create
-#        upmin_model GET      /m/:klass/i/:id(.:format)         upmin/models#show
-#                    PUT      /m/:klass/i/:id(.:format)         upmin/models#update
-#       upmin_action POST     /m/:klass/i/:id/:method(.:format) upmin/models#action
-#
 # Routes for RailsAdmin::Engine:
 #   dashboard GET         /                                      rails_admin/main#dashboard
 #       index GET|POST    /:model_name(.:format)                 rails_admin/main#index
@@ -74,13 +63,13 @@ Rails.application.routes.draw do
       get ':username/followers' => 'relationships#followers'
       get ':username/following' => 'relationships#following'
       get ':username' => 'users#show'
-      get '', :to => redirect('/api/v1/api.html')
+      get '', to: redirect('/api/v1/api.html')
     end
     get '', to: redirect('/api/v1')
   end
 
   authenticated :user do
-    root to: "microposts#index", as: :authenticated_root
+    root to: 'microposts#index', as: :authenticated_root
   end
   root to: 'visitors#index'
 
