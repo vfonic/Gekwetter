@@ -42,24 +42,25 @@ RSpec.describe Micropost, type: :model do
 
     subject { Micropost }
     it { should respond_to(:timeline).with(1).argument }
+    it { should respond_to(:timeline).with(2).arguments  }
 
     it "should contain created microposts" do
-      @user.microposts.count.should_not be_zero
-      @other_user.microposts.count.should_not be_zero
-      @third_user.microposts.count.should_not be_zero
+      expect(@user.microposts.count).to be 1
+      expect(@other_user.microposts.count).to be 1
+      expect(@third_user.microposts.count).to be 1
     end
 
     it "should include the followed users' microposts" do
-      Micropost.timeline(@user).include?(@other_post).should be_truthy
-      Micropost.timeline(@user).include?(@third_post).should be_truthy
+      expect(Micropost.timeline(@user)).to include(@other_post)
+      expect(Micropost.timeline(@user)).to include(@third_post)
     end
 
     it "should not include the user's own microposts" do
-      Micropost.timeline(@user).include?(@user_post).should be_falsy
+      expect(Micropost.timeline(@user)).not_to include(@user_post)
     end
 
     it "should not include an unfollowed user's microposts" do
-      Micropost.timeline(@user).include?(@fourth_post).should be_falsy
+      expect(Micropost.timeline(@user)).not_to include(@fourth_post)
     end
   end
 end
