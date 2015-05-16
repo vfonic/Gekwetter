@@ -14,7 +14,7 @@ set :repo_url, 'https://github.com/vfonic/Gekwetter.git'
 
 # setup rvm
 set :rvm_ruby_version, '2.2.1'
-set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+set :default_env, rvm_bin_path: '~/.rvm/bin'
 SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 
 # set :rbenv_type, :system
@@ -40,10 +40,10 @@ set :assets_roles, [:app]
 # set :pty, true
 
 # files we want symlinking to specific entries in shared.
-set :linked_files, %w{ config/database.yml config/application.yml }
+set :linked_files, %w(config/database.yml config/application.yml)
 
 # dirs we want symlinking to shared
-set :linked_dirs, %w{ bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system }
+set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system)
 
 # what specs should be run before deployment is allowed to
 # continue, see lib/capistrano/tasks/run_tests.cap
@@ -70,16 +70,16 @@ set(:executable_config_files, %w(
 # init scripts etc.
 set(:symlinks, [
   {
-    source: "nginx.conf",
-    link: "/etc/nginx/sites-enabled/{{full_app_name}}"
+    source: 'nginx.conf',
+    link: '/etc/nginx/sites-enabled/{{full_app_name}}'
   },
   {
-    source: "unicorn_init.sh",
-    link: "/etc/init.d/unicorn_{{full_app_name}}"
+    source: 'unicorn_init.sh',
+    link: '/etc/init.d/unicorn_{{full_app_name}}'
   },
   {
-    source: "log_rotation",
-   link: "/etc/logrotate.d/{{full_app_name}}"
+    source: 'log_rotation',
+    link: '/etc/logrotate.d/{{full_app_name}}'
   }
   # {
   #   source: "monit",
@@ -93,10 +93,10 @@ set(:symlinks, [
 # and when for `cap stage deploy`
 namespace :deploy do
   # make sure we're deploying what we think we're deploying
-  before :deploy, "deploy:check_revision"
+  before :deploy, 'deploy:check_revision'
 
   # only allow a deploy with passing tests to deployed
-  before :deploy, "deploy:run_tests"
+  before :deploy, 'deploy:run_tests'
 
   # compile assets locally then rsync
   after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
@@ -125,5 +125,4 @@ namespace :deploy do
   #     # end
   #   end
   # end
-
 end

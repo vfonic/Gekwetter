@@ -25,14 +25,14 @@ class Micropost < ActiveRecord::Base
   belongs_to :user
 
   validates :content,
-    presence: true,
-    length: { maximum: 160 }
+            presence: true,
+            length: { maximum: 160 }
 
   def self.timeline(user, page = '')
-    self.joins(:user).where(user: user.following).page page
+    joins(:user).where(user: user.following).page page
   end
 
-  def as_json(options = {})
+  def as_json(_ = {})
     {
       id: id,
       content: content,

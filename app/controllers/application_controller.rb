@@ -17,9 +17,7 @@ class ApplicationController < ActionController::Base
 
   protected
     def new_status_box_if_signed_in
-      if user_signed_in?
-        @new_micropost = Micropost.new
-      end
+      @new_micropost = Micropost.new if user_signed_in?
     end
 
     def configure_permitted_parameters

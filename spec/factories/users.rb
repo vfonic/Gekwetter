@@ -46,14 +46,14 @@ FactoryGirl.define do
     # confirmed_at Time.now
     sequence(:username) { |n| "Test#{n}" }
     sequence(:email) { |n| "test#{n}@example.com" }
-    password "please123"
+    password 'please123'
   end
 
   factory :admin, class: User do
     # confirmed_at Time.now
     sequence(:username) { |n| "Admin#{n}" }
     sequence(:email) { |n| "admin#{n}@example.com" }
-    password "please123"
+    password 'please123'
 
     trait :admin do
       role 'admin'
