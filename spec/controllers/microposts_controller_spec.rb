@@ -29,4 +29,19 @@ describe MicropostsController, type: :controller do
       response.should redirect_to(new_user_session_path)
     end
   end
+
+  context "GET #timeline" do
+    before do
+      @user = create(:user)
+      sign_in @user
+      @user.stub(:following)
+      @micropost = create(:micropost)
+      allow(Micropost).to receive(:timeline).and_return([@micropost])
+    end
+
+    it "assigns all microposts as @microposts" do
+      get :timeline
+      expect(assigns(:microposts)).to eq([@micropost])
+    end
+  end
 end
