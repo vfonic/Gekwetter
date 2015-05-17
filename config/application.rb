@@ -24,7 +24,7 @@ module Gekwetter
                        helper_specs: true,
                        routing_specs: true,
                        controller_specs: true,
-                       request_specs: false
+                       request_specs: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
