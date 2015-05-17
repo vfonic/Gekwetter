@@ -34,6 +34,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
+  gem 'guard-cucumber'
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard', '~> 1.6.4'
   gem 'html2haml'
@@ -60,4 +61,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
 end
