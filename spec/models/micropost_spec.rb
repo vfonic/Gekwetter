@@ -22,8 +22,14 @@
 
 require 'rails_helper'
 
-RSpec.describe Micropost, type: :model do
-  describe 'timeline' do
+describe Micropost, type: :model do
+  context "validate" do
+    it { should belong_to(:user) }
+    it { should validate_presence_of(:content) }
+    it { should validate_length_of(:content).is_at_most(160) }
+  end
+
+  context '::timeline' do
     before(:each) do
       @user = create(:user)
       @other_user = create(:user)
@@ -40,8 +46,9 @@ RSpec.describe Micropost, type: :model do
     end
 
     subject { Micropost }
+
     it { should respond_to(:timeline).with(1).argument }
-    it { should respond_to(:timeline).with(2).arguments  }
+    it { should respond_to(:timeline).with(2).arguments }
 
     it 'should contain created microposts' do
       expect(@user.microposts.count).to be 1
