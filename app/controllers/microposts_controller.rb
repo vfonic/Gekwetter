@@ -3,12 +3,10 @@ class MicropostsController < ApplicationController
   before_action :authenticate_user!
 
   def timeline
-    render nothing: true
   end
 
   def create
-    @micropost = Micropost.new(micropost_params)
-    @micropost.user = current_user
+    @micropost = current_user.microposts.build(micropost_params)
 
     respond_to do |format|
       if @micropost.save
