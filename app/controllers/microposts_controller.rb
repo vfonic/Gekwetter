@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :set_microposts, only: :index
+  before_action :authenticate_user!
 
   # GET /microposts
   # GET /microposts.json

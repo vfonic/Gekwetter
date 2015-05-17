@@ -80,7 +80,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :index
   resources :users, except: :index, path: '' do
-    resources :microposts, only: [:index, :destroy, :create]
+    resources :microposts, only: [:destroy, :create]
     member do
       get :following, :followers
     end
