@@ -29,7 +29,7 @@ feature 'User edit', :devise do
   #   Given I am signed in
   #   When I try to edit another user's profile
   #   Then I see my own 'edit profile' page
-  scenario "user cannot cannot edit another user's profile", :me do
+  scenario "user cannot edit another user's profile", :me do
     me = create(:user)
     other = create(:user)
     login_as(me, scope: :user)
