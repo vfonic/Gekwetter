@@ -30,7 +30,7 @@ describe MicropostsController, type: :controller do
     end
   end
 
-  context "GET #timeline" do
+  context "authenticated user" do
     before do
       @user = create(:user)
       sign_in @user
@@ -39,9 +39,40 @@ describe MicropostsController, type: :controller do
       allow(Micropost).to receive(:timeline).and_return([@micropost])
     end
 
-    it "assigns all microposts as @microposts" do
-      get :timeline
-      expect(assigns(:microposts)).to eq([@micropost])
+    context "GET #timeline" do
+      it "assigns all microposts as @microposts" do
+        get :timeline
+        expect(assigns(:microposts)).to eq([@micropost])
+      end
+    end
+
+    context "POST #create" do
+      context "with valid params" do
+        def create_micropost
+          post :create, { user_id: @user.to_param, micropost: valid_attributes }
+        end
+
+        it "creates a new Micropost" do
+          expect { create_micropost }
+            .to(change(Micropost, :count).by(1))
+        end
+
+        it "assigns a newly created micropost as @micropost" do
+          create_micropost
+          expect(assigns(:micropost)).to be_a(Micropost)
+          expect(assigns(:micropost)).to be_persisted
+        end
+
+        it "redirects to the users_profile micropost" do
+          create_micropost
+          expect(response).to redirect_to(@user)
+        end
+
+        it "associates a newly created micropost to user" do
+          create_micropost
+          expect(assigns(:micropost).attributes.symbolize_keys[:user_id]).to eq(@user.id)
+        end
+      end
     end
   end
 end
