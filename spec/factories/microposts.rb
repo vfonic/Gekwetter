@@ -23,6 +23,6 @@
 FactoryGirl.define do
   factory :micropost do
     sequence(:content) { |n| "My status message ##{n}" }
-    user_id 1
+    user
   end
 end

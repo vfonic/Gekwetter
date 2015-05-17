@@ -7,7 +7,7 @@
 #                          GET    /api/v1/:username(.:format)           api/v1/users#show {:format=>"json"}
 #                          GET    /api/v1(.:format)                     redirect(301, /api/v1/api.html) {:format=>"json"}
 #                      api GET    /api(.:format)                        redirect(301, /api/v1) {:format=>"json"}
-#       authenticated_root GET    /                                     microposts#index
+#       authenticated_root GET    /                                     microposts#timeline
 #                     root GET    /                                     visitors#index
 #         new_user_session GET    /users/sign_in(.:format)              devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)              devise/sessions#create
@@ -17,18 +17,17 @@
 #       edit_user_password GET    /users/password/edit(.:format)        devise/passwords#edit
 #                          PATCH  /users/password(.:format)             devise/passwords#update
 #                          PUT    /users/password(.:format)             devise/passwords#update
-# cancel_user_registration GET    /users/cancel(.:format)               devise/registrations#cancel
-#        user_registration POST   /users(.:format)                      devise/registrations#create
-#    new_user_registration GET    /users/sign_up(.:format)              devise/registrations#new
-#   edit_user_registration GET    /users/edit(.:format)                 devise/registrations#edit
-#                          PATCH  /users(.:format)                      devise/registrations#update
-#                          PUT    /users(.:format)                      devise/registrations#update
-#                          DELETE /users(.:format)                      devise/registrations#destroy
+# cancel_user_registration GET    /user/cancel(.:format)                devise/registrations#cancel
+#        user_registration POST   /user(.:format)                       devise/registrations#create
+#    new_user_registration GET    /user/sign_up(.:format)               devise/registrations#new
+#   edit_user_registration GET    /user/edit(.:format)                  devise/registrations#edit
+#                          PATCH  /user(.:format)                       devise/registrations#update
+#                          PUT    /user(.:format)                       devise/registrations#update
+#                          DELETE /user(.:format)                       devise/registrations#destroy
 #              follow_user POST   /:username/follow(.:format)           relationships#create
 #            unfollow_user POST   /:username/unfollow(.:format)         relationships#destroy
 #                    users GET    /users(.:format)                      users#index
-#          user_microposts GET    /:user_id/microposts(.:format)        microposts#index
-#                          POST   /:user_id/microposts(.:format)        microposts#create
+#          user_microposts POST   /:user_id/microposts(.:format)        microposts#create
 #           user_micropost DELETE /:user_id/microposts/:id(.:format)    microposts#destroy
 #           following_user GET    /:id/following(.:format)              users#following
 #           followers_user GET    /:id/followers(.:format)              users#followers
@@ -69,11 +68,14 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-    root to: 'microposts#index', as: :authenticated_root
+    root to: 'microposts#timeline', as: :authenticated_root
   end
   root to: 'visitors#index'
 
-  devise_for :users
+  devise_for :users, skip: :registrations
+  devise_for :user, only: :registrations do
+    resource :registration, only: [:new, :create], controller: 'devise/registrations'
+  end
 
   post ':username/follow', to: 'relationships#create', as: :follow_user
   post ':username/unfollow', to: 'relationships#destroy', as: :unfollow_user

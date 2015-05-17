@@ -1,14 +1,11 @@
 class MicropostsController < ApplicationController
-  before_action :set_microposts, only: :index
+  before_action :set_microposts, only: :timeline
   before_action :authenticate_user!
 
-  # GET /microposts
-  # GET /microposts.json
-  def index
+  def timeline
+    render nothing: true
   end
 
-  # POST /microposts
-  # POST /microposts.json
   def create
     @micropost = Micropost.new(micropost_params)
     @micropost.user = current_user
@@ -24,8 +21,6 @@ class MicropostsController < ApplicationController
     end
   end
 
-  # DELETE /microposts/1
-  # DELETE /microposts/1.json
   def destroy
     @micropost = current_user.microposts.find(params[:id])
     @micropost.destroy
@@ -36,12 +31,10 @@ class MicropostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_microposts
       @microposts = Micropost.timeline(current_user, params[:page])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def micropost_params
       params.require(:micropost).permit(:content)
     end
