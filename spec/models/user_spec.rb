@@ -42,6 +42,14 @@
 #
 
 describe User do
+  context "validate" do
+    it { should have_many(:microposts) }
+    it { should validate_presence_of(:username) }
+    it { should validate_uniqueness_of(:username) }
+    it { should allow_value('vfonic').for(:username) }
+    it { should_not allow_value('Viktor Fonic').for(:username) }
+  end
+
   before(:each) { @user = create(:user) }
 
   subject { @user }
