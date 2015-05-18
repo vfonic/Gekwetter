@@ -37,8 +37,18 @@ ul.timeline {
   @extend .btn;
   @extend .btn-primary;
   @extend .pull-right;
-  margin-top: 7px;
+  margin-top: 8px;
+  margin-right: 20%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .new_status_box {
   display: none;
+}
+
+@media (max-width: $screen-xs-max) {
+  .new_status {
+    margin-right: 16px;
+  }
 }
