@@ -1,7 +1,7 @@
 class Api::V1::RelationshipsController < Api::V1::ApiController
   before_action :set_user
 
-  after_filter only: [:following, :followers] { set_pagination_header(:follow) }
+  after_action only: [:following, :followers] { set_pagination_header(:follow) }
 
   def followers
     @follow = @user.followers.page(params[:page])

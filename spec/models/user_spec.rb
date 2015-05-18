@@ -42,6 +42,13 @@
 #
 
 describe User do
+  context "validate" do
+    it { should have_many(:microposts) }
+    it { should validate_presence_of(:username) }
+    it { should validate_uniqueness_of(:username) }
+    it { should allow_value('vfonic').for(:username) }
+    it { should_not allow_value('Viktor Fonic').for(:username) }
+  end
 
   before(:each) { @user = create(:user) }
 
@@ -49,8 +56,7 @@ describe User do
 
   it { should respond_to(:email) }
 
-  it "#email returns a string" do
+  it '#email returns a string' do
     expect(@user.email).to match(/test[0-9]+@example\.com/)
   end
-
 end
