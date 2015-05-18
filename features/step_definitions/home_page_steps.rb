@@ -10,5 +10,5 @@ end
 Then(/^I should see the "(.*?)" post$/) do |content|
   @post = Micropost.find_by_content(content)
 
-  page.should have_content(@post.content)
+  expect(page).to have_content(@post.content)
 end
