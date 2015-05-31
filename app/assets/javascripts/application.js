@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery2
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require cookies_eu
@@ -20,4 +20,5 @@
 //= require nprogress-turbolinks
 //= require jquery.infinitescroll
 //= require bootbox
+//= require angular
 //= require_tree .

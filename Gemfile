@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.2.1'
+gem 'bundler', '>= 1.8.4'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular', '~> 1.4.0'
+end
+
 gem 'rails', '~> 4.2.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 2.7.1'
@@ -21,6 +26,9 @@ gem 'cookies_eu', '~> 1.0.19'
 gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'kaminari', '~> 0.16.3'
 group :development, :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-rails'
@@ -54,10 +62,7 @@ group :development do
   gem 'capistrano-figaro-yml', '~> 1.0.2'
 end
 group :test do
-  gem 'capybara'
-  gem 'database_cleaner'
   gem 'launchy'
-  gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
   gem 'cucumber-rails', require: false
 end
