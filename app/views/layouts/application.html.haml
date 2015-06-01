@@ -1,6 +1,7 @@
 !!!
 %html{:lang => "en", "ng-app" => "gekwetter"}
   %head
+    %base{href: "/api/v2"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : 'Gekwetter'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Gekwetter'}"}
@@ -14,5 +15,5 @@
       .container
         = render 'layouts/messages'
         %section
-          = yield
+          %div{"ng-view" => true}
     = render 'cookies_eu/cookies_eu', link: '/pages/cookies'

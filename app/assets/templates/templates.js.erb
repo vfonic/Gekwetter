@@ -1,6 +1,6 @@
 <% environment.context_class.instance_eval { include ActionView::Helpers::JavaScriptHelper } %>
 angular.module('templates', []).run(function($templateCache) {
-  <% Dir.glob(Rails.root.join('app','views','visitors', '*.haml')).each do |f| %>
+  <% Dir.glob(Rails.root.join('app','assets', 'templates', '**', '*.haml')).each do |f| %>
     <% depend_on(f) %>
     <%
       base = Class.new do

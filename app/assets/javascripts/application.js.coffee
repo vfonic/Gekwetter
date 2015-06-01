@@ -21,5 +21,8 @@
 #= require jquery.infinitescroll
 #= require bootbox
 #= require angular
+#= require angular-route
+#= require angular-resource
+#= require init
 #= require_tree .
 #= require templates

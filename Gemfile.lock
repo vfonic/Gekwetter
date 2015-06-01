@@ -272,6 +272,8 @@ GEM
       railties (= 4.2.1)
       sprockets-rails
     rails-assets-angular (1.4.0)
+    rails-assets-angular-resource (1.4.0)
+      rails-assets-angular (= 1.4.0)
     rails-assets-angular-route (1.4.0)
       rails-assets-angular (= 1.4.0)
     rails-deprecated_sanitizer (1.0.3)
@@ -447,6 +449,7 @@ DEPENDENCIES
   quiet_assets
   rails (~> 4.2.1)
   rails-assets-angular (~> 1.4.0)!
+  rails-assets-angular-resource (~> 1.4.0)!
   rails-assets-angular-route (~> 1.4.0)!
   rails-footnotes
   rails_admin (~> 0.6.7)

@@ -1,0 +1,10 @@
+%h3 Welcome
+%p
+  = link_to 'Users:', '/users'
+  = User.count
+  registered
+
+/ = render 'microposts/timeline', microposts: @microposts
+
+.pagination
+  / = paginate @microposts
