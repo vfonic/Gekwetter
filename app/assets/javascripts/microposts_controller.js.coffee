@@ -1,6 +1,6 @@
 root = global ? window
 
-MicropostsCtrl = ($scope, Micropost) ->
+MicropostsController = ($scope, Micropost) ->
   $scope.Microposts = Micropost.query()
   $scope.colors = [
     {name: 'Red', value: 'red'}
@@ -38,7 +38,7 @@ MicropostsCtrl = ($scope, Micropost) ->
   #       }
   # }
 
-MicropostsCtrl.$inject = ['$scope', 'Micropost'];
+MicropostsController.$inject = ['$scope', 'Micropost'];
 
 # MicropostsCreateCtrl = ($scope, $location, Micropost) ->
 #   $scope.save = ->
@@ -84,7 +84,7 @@ MicropostsCtrl.$inject = ['$scope', 'Micropost'];
 # MicropostsEditCtrl.$inject = ['$scope', '$location', '$routeParams', 'Micropost'];
 
 # exports
-root.MicropostsCtrl  = MicropostsCtrl
+root.MicropostsController  = MicropostsController
 # root.MicropostsCreateCtrl = MicropostsCreateCtrl
 # root.MicropostsShowCtrl   = MicropostsShowCtrl
 # root.MicropostsEditCtrl   = MicropostsEditCtrl 

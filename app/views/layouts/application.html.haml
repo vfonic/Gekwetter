@@ -1,8 +1,10 @@
 !!!
 %html{:lang => "en", "ng-app" => "gekwetter"}
   %head
-    %base{href: "/api/v2"}
+    %meta{charset: "utf-8"}
+    %base{href: "/api/v2/"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %meta{name: :current_user, content: current_user.to_json}
     %title= content_for?(:title) ? yield(:title) : 'Gekwetter'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Gekwetter'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
