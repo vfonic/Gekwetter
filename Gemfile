@@ -3,6 +3,7 @@ ruby '2.2.1'
 gem 'bundler', '>= 1.8.4'
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular', '~> 1.4.0'
+  gem 'rails-assets-angular-route', '~> 1.4.0'
 end
 
 gem 'rails', '~> 4.2.1'

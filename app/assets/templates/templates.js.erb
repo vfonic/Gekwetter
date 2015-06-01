@@ -1,0 +1,13 @@
+<% environment.context_class.instance_eval { include ActionView::Helpers::JavaScriptHelper } %>
+angular.module('templates', []).run(function($templateCache) {
+  <% Dir.glob(Rails.root.join('app','views','visitors', '*.haml')).each do |f| %>
+    <% depend_on(f) %>
+    <%
+      base = Class.new do
+        include ActionView::Helpers
+        include ApplicationHelper
+      end.new
+    %>
+    $templateCache.put("<%= File.basename(f).gsub(/\.haml$/, '')  %>", <%= Haml::Engine.new(File.read(f)).render(base).to_json %>);
+  <% end %>
+});

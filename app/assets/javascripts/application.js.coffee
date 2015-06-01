@@ -22,3 +22,4 @@
 #= require bootbox
 #= require angular
 #= require_tree .
+#= require templates
